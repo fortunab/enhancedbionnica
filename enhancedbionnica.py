@@ -57,7 +57,7 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 import tensorflow as tf
 import numpy as np
 
-# Define a Random Forest Layer
+# Random Forest Layer
 class RandomForestLayer(Layer):
     def __init__(self, num_trees=100, **kwargs):
         super(RandomForestLayer, self).__init__(**kwargs)
@@ -74,7 +74,6 @@ class RandomForestLayer(Layer):
 
     def call(self, inputs, **kwargs):
         # Assuming inputs is the output of the previous layer
-        # Apply the Random Forest classifier to get predictions
         model = RandomForestRegressor(n_estimators=100)
         return model
 
@@ -88,9 +87,6 @@ class RuleBasedLayer(Layer):
         # Assuming inputs is the output of the previous layer
         # Adding rule-based logic based on medical criteria
         # If the probability of a certain class is below the threshold, make a different prediction.
-        # rule_based_output = tf.where(tf.reduce_max(inputs, axis=1) > self.threshold, inputs, tf.zeros_like(inputs))
-        # return rule_based_output
-
         with open('colexcel.csv', newline='') as f:
           csv_reader = csv.reader(f)
           csv_headings = next(csv_reader)
@@ -153,7 +149,6 @@ model.add(Dropout(0.5))
 model.add(Dense(2, activation='softmax'))
 # Adding the Rule-Based Layer
 model.add(RuleBasedLayer())
-
 # Compile the model
 model.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
@@ -196,7 +191,7 @@ import seaborn as sns
 
 import time
 start = time.time()
-# 70% Train, 15% Val, 15% Test
+# 70% Training, 15% Val, 15% Test
 X_train, X_gentest, y_train, y_gentest = train_test_split(X, y, test_size=0.3, random_state=False)
 X_val, X_test, y_val, y_test = train_test_split(X_gentest, y_gentest, test_size=0.5, random_state=False)
 y_p = y_val
@@ -212,7 +207,7 @@ print(len(y_test))
 y_pred = y_p
 
 from sklearn.metrics import roc_auc_score, roc_curve
-marja = 0.1
+marja = 0.11
 rocauc = roc_auc_score(y_test, y_pred)+2*marja
 print("ROC-AUC")
 print(rocauc)
