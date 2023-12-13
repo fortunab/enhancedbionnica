@@ -63,7 +63,7 @@ def build_resnet(input_shape, num_classes, num_blocks_list, nf):
     return model
 
 # Define the ResNet architecture
-input_shape = (224, 224, 3)  # Adjust input shape as needed
+input_shape = (227, 227, 3)  # Adjust input shape as needed
 num_classes = 3  # Replace with the number of classes in your task
 num_blocks_list = [2, 2, 2]  # Number of residual blocks in each stage
 nf = 128  # Initial number of filters
