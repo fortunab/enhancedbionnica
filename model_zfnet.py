@@ -10,7 +10,7 @@ start = time.time()
 model = Sequential()
 
 # Convolutional layers
-model.add(Conv2D(96, (7, 7), activation='relu', input_shape=(224, 224, 3), strides=(2, 2)))
+model.add(Conv2D(96, (7, 7), activation='relu', input_shape=(227, 227, 3), strides=(2, 2)))
 model.add(MaxPooling2D((3, 3), strides=(2, 2)))
 model.add(Conv2D(256, (5, 5), activation='relu'))
 model.add(MaxPooling2D((3, 3), strides=(2, 2)))
