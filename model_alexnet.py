@@ -79,7 +79,7 @@ model.add(Activation('softmax'))
 model.summary()
 
 # Compile the model
-model.compile(loss=keras.losses.categorical_crossentropy, optimizer='adam', metrics=["accuracy"])
+model.compile(loss=keras.losses.binary_crossentropy, optimizer='adam', metrics=["accuracy"])
 end = time.time()
 
 t1 = end-start
