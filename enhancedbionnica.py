@@ -150,7 +150,7 @@ model.add(Dense(2, activation='softmax'))
 # Adding the Rule-Based Layer
 model.add(RuleBasedLayer())
 # Compile the model
-model.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 model.summary()
 
 # Testing it
