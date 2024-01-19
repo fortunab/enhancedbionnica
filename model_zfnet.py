@@ -21,12 +21,12 @@ model.add(MaxPooling2D((3, 3), strides=(2, 2)))
 
 # Fully connected layers
 model.add(Flatten())
-model.add(Dense(4096, activation='relu'))
-model.add(Dense(4096, activation='relu'))
-model.add(Dense(6, activation='softmax'))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(2, activation='softmax'))
 
 # Compile the model
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Summary of the model
 model.summary()
