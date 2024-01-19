@@ -61,13 +61,13 @@ model.add(MaxPooling2D(pool_size=(3,3), strides=(2,2), padding='valid'))
 model.add(Flatten())
 
 # 1st Fully Connected Layer has 4096 neurons
-model.add(Dense(4096, input_shape=(227*227*3,)))
+model.add(Dense(64, input_shape=(227*227*3,)))
 model.add(Activation('relu'))
 # Add Dropout to prevent overfitting
 model.add(Dropout(0.4))
 
 # 2nd Fully Connected Layer
-model.add(Dense(4096))
+model.add(Dense(64))
 model.add(Activation('relu'))
 # Add Dropout
 model.add(Dropout(0.4))
