@@ -36,11 +36,11 @@ model.add(MaxPooling2D((2, 2), strides=(2, 2)))
 
 # Fully connected layers
 model.add(Flatten())
-model.add(Dense(4096, activation='relu'))
+model.add(Dense(256, activation='relu'))
 model.add(Dropout(0.5))
-model.add(Dense(4096, activation='relu'))
+model.add(Dense(256, activation='relu'))
 model.add(Dropout(0.5))
-model.add(Dense(6, activation='softmax'))  # Adjust 'num_classes' for your dataset
+model.add(Dense(2, activation='softmax'))
 
 # Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
